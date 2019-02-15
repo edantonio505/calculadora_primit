@@ -43,7 +43,18 @@ def checkear_numero(num):
 
 
 
-
+# control de comado
+def control_de_comando(comando):
+    # control de errors
+    comandos = ["+", "-", "x", "/"]
+    comando_correcto = False
+    for i in comandos:
+        if i == comando:
+            comando_correcto = True
+    if comando_correcto == False:
+        print("Ingrese un comando correcto pelotudo")
+        quit()
+    return comando
 
 
 
@@ -56,7 +67,7 @@ def main():
 
     primer_numero = checkear_numero(raw_input('Ingresa un numero: '))
     segundo_numero = checkear_numero(raw_input('Ingresa otro numero: '))
-    comando = raw_input("que operacion te gustaria ")
+    comando = control_de_comando(raw_input("que operacion te gustaria "))
     
     #instanciar la calculadora
     calc = Calculadora(primer_numero, segundo_numero, comando)
@@ -71,7 +82,31 @@ def main():
 
 
 
+
+
+
+
+def test_calculadora():
+    primer_numero = 7
+    segundo_numero = 8
+    comando = "+"
+    calc  = Calculadora(primer_numero, segundo_numero, comando)
+    assert calc.calcular() == 15
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
+    test_calculadora()
     main()
 
 
