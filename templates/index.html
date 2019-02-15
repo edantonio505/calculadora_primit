@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Calculadora</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .contenedor_de_calculadora{
+                max-width: 600px;
+                margin: 0 auto;
+                box-shadow: 0px 1px 2px #bdbdbd;
+                border-radius: 8px;
+            }
+            
+            .calculadora_dentro {
+                padding: 16px;
+            }
+
+            .resultado {
+                text-align: center;
+                color: #4aa54a;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div
+            style="margin-top: 70px;"
+            class="container"
+        >
+            <div class="contenedor_de_calculadora">
+                <div class="calculadora_dentro">
+                        <h4>Esta es una super calculadora asi que ten cuidado</h4>
+
+                        <!-- comienzo del formulario -->
+                        <form action="/" method="POST">
+        
+        
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="primer_numero" placeholder="Ingrese el primer numero">
+                            </div>
+        
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="segundo_numero" placeholder="Ingrese el segundo numero">
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <select class="form-control" name="comando">
+                                    <option>Elige un operacion</option>
+                                    <option value="+">Sumar</option>
+                                    <option value="-">Restar</option>
+                                    <option value="/">Dividir</option>
+                                    <option value="x">Multiplicar</option>
+                                </select>
+                            </div>
+
+                            <input type="submit" class="btn btn-block btn-primary" value="Calcular">
+        
+                        </form>
+                        <!-- final del formulario -->
+
+                        {% if resultado %}
+                            <h3 class="resultado">El resultado es {{ resultado }} </h3>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
